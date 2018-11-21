@@ -1,0 +1,12 @@
+import turtle
+wn = turtle.Screen()
+
+art = turtle.Turtle()
+art.hideturtle()
+art.speed(20)
+
+for l in range(100):
+    art.forward(l)
+    art.right(36)
+    
+wn.exitonclick()
