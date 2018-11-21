@@ -1,0 +1,26 @@
+CIPHER: ENCRYPTOR
+
+import string
+alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+cipher = "QRSTUVWXYZABCDEFGHIJKLMNOPqrstuvwxyzabcdefghijklmnop"
+
+def encryptor(message,cipher):
+    encrypted = ""
+    for ch in message:
+        if ch == " ":
+            encrypted = encrypted + " "
+        else: 
+            pos = alphabet.index(ch)
+            encrypted = encrypted + cipher[pos]
+    return encrypted
+    
+def subcipher(message): #one letter substituted
+    message.lowercase()
+    newcipher = ""
+    for ch in ascii_lowercase:
+        charnum = ord(ch)-97
+        newcipher = chr((charnum + 16)% 26 +97)
+    return newcipher 
+
+encrypted = encryptor('HELLO world', cipher)
+print(encrypted)
