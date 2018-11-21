@@ -1,0 +1,34 @@
+***class***
+
+import math
+
+class Point():
+    def __init__(self,initX,initY):
+        self.x = initX
+        self.y = initY
+        
+    def getX(self):
+        return self.x
+    
+    def getY(self):
+        return self.y
+    
+    def distanceFromOrigin(self):
+        return (self.x **2 + self.y **2) **0.5
+    
+    def distanceFromPoint(self,otherP):
+        xdiff = (otherP.getX() - self.x)
+        ydiff = (otherP.getY() - self.y)
+        return math.sqrt(xdiff**2 + ydiff**2)
+    
+    def slopeFromOrigin(self):
+        return self.y / self.x
+      
+    def getLineTo(self,otherP):
+        yslope = (otherP.getY() - self.y)
+        xslope = (otherP.getX() - self.x)
+        m = yslope // xslope
+        b = self.y -(m *self.x)
+        return m,b
+
+print(Point(4,11).getLineTo(Point(6,15)))
