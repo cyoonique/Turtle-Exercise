@@ -1,0 +1,12 @@
+*REMOVE_DUPLICATE
+
+def remove_dups(astring):
+    newstring = ""
+    for ch in astring:
+        if ch not in newstring:
+            newstring = newstring + ch
+        else:
+            newstring
+    return newstring
+
+print(remove_dups("mississippi"))   #should print misp
