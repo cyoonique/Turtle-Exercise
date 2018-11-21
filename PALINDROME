@@ -1,0 +1,27 @@
+**RECURSIVE IMPLIMENTATION OF  PALINDROME
+
+from test import testEqual
+
+punc = [' ', '\'', '-']
+def reverse(text):
+    if text == '':
+        return text
+    else:
+        return text[-1] + reverse(text[0:-1])
+
+def removeWhite(s):
+    return ''.join(i.lower() for i in s if i not in punc)
+    
+def isPal(text):
+    text = removeWhite(text)
+    if text == reverse(text):
+        return True
+    else:
+        return False
+
+testEqual(isPal(removeWhite("x")),True)
+testEqual(isPal(removeWhite("radar")),True)
+testEqual(isPal(removeWhite("hello")),False)
+testEqual(isPal(removeWhite("")),True)
+testEqual(isPal(removeWhite("hannah")),True)
+testEqual(isPal(removeWhite("madam i'm adam")),True)
