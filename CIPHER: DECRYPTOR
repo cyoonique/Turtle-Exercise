@@ -1,0 +1,34 @@
+*CIPHER: DECRYPTOR
+
+
+alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+cipher = "QRSTUVWXYZABCDEFGHIJKLMNOPqrstuvwxyzabcdefghijklmnop"
+
+def encryptor(message,cipher):
+    encrypted = ""
+    for ch in message:
+        if ch == " ":
+            encrypted = encrypted + " "
+        else:
+            pos = alphabet.index(ch)
+            encrypted = encrypted + cipher[pos]
+    return encrypted
+
+def decryptor(eMessage, alphabet):
+    decrypted = ""
+    for ch in eMessage:
+        if ch == " ":
+            decrypted = decrypted + " "
+        else:
+            dpos = cipher.index(ch)
+            decrypted = decrypted + alphabet[dpos]
+    return decrypted
+
+def main():
+    encrypted = encryptor('HELLO word', cipher)
+    print(encrypted)
+    
+    decrypted = decryptor(encrypted, alphabet)
+    print(decrypted)
+    
+main()
