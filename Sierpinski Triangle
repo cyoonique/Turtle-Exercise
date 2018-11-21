@@ -1,0 +1,51 @@
+**Sierpinski Triangle
+
+import turtle
+
+def lSystem(internum, axiom):
+    startcurve = axiom
+    endcurve = ""
+    for i in range(internum):
+        endcurve = processor(startcurve)
+        startcurve = endcurve
+    return endcurve
+
+def processor(oldcurve):
+    newcurve = ""
+    for ch in oldcurve:
+        newcurve = newcurve + SierpinskiTriangle(ch)
+    return newcurve
+
+def SierpinskiTriangle(ch):
+    newcurve = ""
+    if ch == 'F':
+        newcurve = 'FF'
+    elif ch == 'X':
+        newcurve = '--FXF++FXF++FXF--'
+    else:
+        newcurve = ch
+    return newcurve
+
+def chrLSystem(aturtle,instruction,angle,direction):
+    for dir in instruction:
+        if dir == 'F':
+            aturtle.forward(direction)
+        elif dir == 'B':
+            aturtle.backward(direction)
+        elif dir == '+':
+            aturtle.right(angle)
+        elif dir == '-':
+            aturtle.left(angle)
+
+def main():
+    inst = lSystem(3,"FXF--FF--FF")
+    print(inst)
+    
+    t = turtle.Turtle()
+    wn= turtle.Screen()
+    
+    t.speed(25)
+    
+    drawaturtle = chrLSystem(t,inst,60,5)
+    wn.exitonclick()
+main()
