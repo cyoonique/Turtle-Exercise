@@ -1,0 +1,57 @@
+Exercise 9.22
+#Lindenmayer system is a parallel rewriting system 
+
+import turtle
+
+def lSystem(numoccu, axiom):
+    startcurve = axiom
+    finalcurve = ""
+    for i in range(numoccu):
+        finalcurve = processor(startcurve)
+        startcurve = finalcurve
+    return finalcurve
+
+def processor(oldcurve):
+    newcurve = ""
+    for ch in oldcurve:
+        newcurve = newcurve + dragoncurve(ch)
+    return newcurve
+
+def dragoncurve(ch):
+    newcurve = ""
+    if ch == 'FX':
+        newcurve = 'X'
+    elif ch == 'X':
+        newcurve = 'X+YF+'
+    elif ch == 'Y':
+        newcurve = '-FX-Y'
+    else:
+        newcurve = ch
+    return newcurve
+
+def valueLSystem(aturtle,instruction,angle,distance):
+    for sign in instruction:
+        if sign == 'F':
+            aturtle.forward(distance)
+        elif sign == 'B':
+            aturtle.backward(distance)
+        elif sign == '+':
+            aturtle.right(angle)
+        elif sign == '-':
+            aturtle.left(angle)
+        
+def main():
+    inst = lSystem (8,"FX")
+    print(inst)
+    
+    t = turtle.Turtle()
+    wn = turtle.Screen()
+    
+    t.up()
+    t.back(150)
+    t.down()
+    t.speed(20)
+    drawturtle = valueLSystem(t,inst,90,10)
+    
+    wn.exitonclick()
+main()
