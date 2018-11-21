@@ -1,0 +1,20 @@
+example 6
+
+import turtle
+wn = turtle.Screen()
+sprite = turtle.Turtle()
+sprite.shape("triangle")
+sprite.color("purple")
+num_legs = int(input("Input how many legs are on a spider:"))
+
+
+for s in range(num_legs):
+    sprite.forward(80)
+    sprite.stamp()
+    sprite.forward(-80)
+    sprite.right(360/num_legs)
+
+sprite.shape("circle")
+sprite.color("blue")
+
+wn.exitonclick()
