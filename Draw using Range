@@ -1,0 +1,26 @@
+import turtle
+
+wn = turtle.Screen()
+
+tri = turtle.Turtle()
+sq = turtle.Turtle()
+hx = turtle.Turtle()
+ot = turtle.Turtle()
+
+for t in range(3):
+    tri.forward(50)
+    tri.left(120)
+
+for s in range(4):
+    sq.forward(60)
+    sq.left(90)
+
+for h in range(5):
+    hx.forward(70)
+    hx.left(72)
+
+for o in range(6):
+    ot.forward(80)
+    ot.left(60)
+    
+wn.exitonclick()
