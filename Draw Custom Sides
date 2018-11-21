@@ -1,0 +1,17 @@
+example 1
+
+import turtle
+wn = turtle.Screen()
+tri = turtle.Turtle()
+
+num_side = int(input('Enter the number of sides:'))
+length = int(input('Enter the length of side:'))
+custom_color = input('Enter the color:')
+
+for t in range(num_side):
+    tri.color(custom_color)
+    tri.forward(length)
+    tri.left(360/num_side)
+    tri.color(custom_color)
+          
+wn.exitonclick()
