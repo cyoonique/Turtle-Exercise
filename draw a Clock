@@ -1,0 +1,28 @@
+import turtle
+wn = turtle.Screen()
+wn.bgcolor("lightgreen")
+
+clock = turtle.Turtle()
+line = turtle.Turtle()
+clock.shape("turtle")
+clock.color("blue")
+line.shape("dot")
+line.color("blue")
+
+line.penup()
+for j in range(12):
+    line.forward(80)
+    line.stamp()
+    line.forward(-80)
+    line.right(30)
+
+    
+clock.penup()
+      
+for i in range(12):
+    clock.forward(100)
+    clock.stamp()
+    clock.forward(-100)
+    clock.right(30)
+
+wn.exitonclick()
